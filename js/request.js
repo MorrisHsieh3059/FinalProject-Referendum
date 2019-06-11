@@ -34,16 +34,6 @@ function loadVill(clickCheck, draw) { //load data via ajax
     }
   });
 
-  // console.log(vill_json);
-
-  // vill(vill_json);
-  // if (clickCheck == 1) {
-  //   villVisual(vill_json);
-  // }
-  // if ($("#district").val() != 'none') {
-  //   // console.log(123);
-  //   vill(vill_json);
-  // }
   localStorage.clear();
   loadvill_check = 1;
 }

@@ -20,12 +20,9 @@
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
   <script src="semantic/dist/semantic.min.js"></script>
 
-
   <title>2018 Referendum in Taiwan</title>
+  <link rel="stylesheet" href="./css/index.css">
 
-  <style>
-    @import url('style.css');
-  </style>
 </head>
 
 <body>
@@ -50,7 +47,11 @@
           <div class="five wide column" id='section1-1'>
             <div>
               <!------------------------------------------------------>
-              <br><span class='text'>1. 選擇您想查看的公投案</span>
+              <br><span id="ins" >第一招：我要看大致走向 ── 從地圖戳</span><br>
+              <!------------------------------------------------------>
+              <br><span class='text'>Step 1. 自地圖選擇欲察看縣市</span><br>
+              <!------------------------------------------------------>
+              <br><span class='text'>Step 2. 選擇您想查看的公投案</span>
               <form class='form' id='ref'>
                 <select name='ref' style="width:300px;" id='layer1' onchange='loadVill(1,1)'>
                   <option value="none">-</option>
@@ -67,9 +68,7 @@
                 </select>
               </form>
               <!------------------------------------------------------>
-              <br><span class='text'>2. 自地圖選擇欲察看縣市</span><br>
-              <!------------------------------------------------------>
-              <br><span class='text'>3. 選擇您想進行疊圖的公投案</span>
+              <br><span class='text'>Step 3. 選擇您想進行疊圖的公投案 (Opt)</span>
               <form class='form'>
                 <select style="width:300px;" id='overlay' onchange='loadVill(2,2)'>
                   <option value="none">-</option>
@@ -84,14 +83,16 @@
                   <option value="15">第十五案： 性平教育</option>
                   <option value="16">第十六案： 以核養綠</option>
                 </select>
-              </form><br>
+              </form>
               <!------------------------------------------------------>
               <div style='padding-left: 18px; color: yellow'>
               </div>
               <div style='padding-left: 18px; color: yellow'>
               </div>
               <!------------------------------------------------------>
-              <br><span class='text'>3. 選擇您想查看的村里及公投案，查看該里詳細投票資訊</span>
+              <br><span id="ins" >第二招：我要看詳細資料 ── 從表格找</span><br>
+              <!------------------------------------------------------>
+              <br><span class='text'>Step 1. 選擇您想查看的村里及公投案，查看該里詳細投票資訊</span>
 
               <form class='form' id='show_table'><br>
                 <div>
@@ -143,7 +144,7 @@
                   <option value="15">第十五案： 性平教育</option>
                   <option value="16">第十六案： 以核養綠</option>
                 </select>
-              </form><br><br><br>
+              </form><br>
               <!------------------------------------------------------>
               <div id="includedContent">
                 <table class="ui red table" id="table1">
@@ -183,16 +184,23 @@
       </div>
     </main>
     <!------------------------------------------------------>
-    <script src="draw.js"></script>
-    <script src="index.js"></script>
-    <script src="callDraw.js"></script>
-    <script type="text/javascript" src="district_data.js"></script>
-    <script src="changeCity.js"></script>
-    <script src="vill.js"></script>
-    <script src="table.js"></script>
-    <script src="condition.js"></script>
-    <script src="loadJSON.js"></script>
-    <script src="request.js"></script>
+    <!-- 基本資料 -->
+    <script src="js/request.js"></script> <!-- 介接所有資料，找出每個公投案的資料以及地圖 -->
+    <script type="text/javascript" src="js/district_data.js"></script> <!-- 放行政區劃資料 -->
+
+    <!-- 畫地圖 -->
+    <script src="js/index.js"></script>
+    <script src="js/draw.js"></script> <!-- 找到相對應比率的顏色 -->
+    <script src="js/callDraw.js"></script> <!-- 幫村里上顏色，判斷一層還兩層 -->
+    <script src="js/paint.js"></script> <!-- 把村里畫出來 -->
+
+    <!-- 寫入表格 -->
+    <script src="js/table.js"></script> <!-- 把村里結果塞進Table -->
+    <script src="js/vill.js"></script> <!-- 在下拉式選單中加入里 -->
+    <script src="js/condition.js"></script> <!-- 找出相對應的區域和公投案的結果 -->
+
+    <!-- 切換城市 -->
+    <script src="js/changeCity.js"></script> <!-- 改城市：換表格 / 戳地圖 -->
 
 
 

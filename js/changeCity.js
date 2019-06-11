@@ -22,7 +22,7 @@ var Taidong = ol.proj.fromLonLat([121.052658, 22.845853])
 var Hualian = ol.proj.fromLonLat([121.411609, 23.815980])
 var LianJian = ol.proj.fromLonLat([119.953364, 26.180745])
 
-function doPan(location) {
+function doPan(location) {// 橫移畫面
 
   view.animate({
     center: location,
@@ -31,7 +31,7 @@ function doPan(location) {
 
 }
 
-function doZoom(location) {
+function doZoom(location) {// 放大縮小，每個縣市有最適的比例
   var Zoom;
 
   if (location == Xinchu_city || location == Jiayi_city){
@@ -61,20 +61,20 @@ function doZoom(location) {
   });
 }
 
-function func(location) {
+function func(location) { //不讓他邊移編放大
   doPan(location);
   setTimeout(function(){doZoom(location);}, 1500);
 }
 
 //----------------------------------------------------------
 
-// Choose City change District
+// Choose City change District 戳下拉是選單，改表格
 function changeCity() {
 
   //下拉選單長度 = 0
-  $("#district option").remove();
+  $("#district option").remove(); // 清掉之前的區
   $("#district").append($("<option></option>").attr("value", "none").text("-"));
-  $("#village option").remove();
+  $("#village option").remove(); // 清掉之前的里
   $("#village").append($("<option></option>").attr("value", "none").text("-"));
 
 
@@ -95,23 +95,12 @@ function changeCity() {
 
     $('#district').append(newOpt);
   }
-  //
-  // //------------------------------------
-  // var City = $('#city').val();
-  // var put = [Taipei,Keelung,Newtaipei,Yeeelan,Taoyuan,Xinchu_city,Xinchu,
-  //               Miaoli,Taizhong,Zhanghua,Nantou,Jiayi_city,Jiayi,Yunlin,
-  //               Tainan,Kaoshong,Ponghu,Jingman,Pingdon,Taidong,Hualian,LianJian];
-  // for(i=0; i<22; i++){
-  //   if (City == i) {
-  //     func(put[i]);
-  //   }
-  // }
 }
 
 //-----------------------------------------------
 //clickCity
 
-function clickCity(location){
+function clickCity(location){ // 直接戳地圖
 
   var put = [Taipei,Keelung,Newtaipei,Yeeelan,Taoyuan,Xinchu_city,Xinchu,
                 Miaoli,Taizhong,Zhanghua,Nantou,Jiayi_city,Jiayi,Yunlin,
@@ -130,7 +119,7 @@ function clickCity(location){
 //-----------------------------------------------
 //"pointermove geojson"
 
-var select = new ol.interaction.Select({
+var select = new ol.interaction.Select({ // 滑到地圖上的時候
   condition: ol.events.condition.pointerMove,
   style: new ol.style.Style({
     stroke: new ol.style.Stroke({
@@ -143,13 +132,13 @@ var select = new ol.interaction.Select({
   })
 });
 
-if (select !== null) {
+if (select !== null) { // 有戳到的話
   map.addInteraction(select);
 }
 
 function add_interaction() {
   //console.log(123);
-  map.addInteraction(select);
+  map.addInteraction(select); // openlayers 內建的
 }
 
 //del_interaction
@@ -158,7 +147,7 @@ function del_interaction() {
 }
 
 //----------------------------------------------------------
-//"click"
+//"click" 戳下去地圖的時候，抄OP
 var featureName;
 var displayFeatureInfo = function(pixel) {
 
@@ -170,6 +159,8 @@ var displayFeatureInfo = function(pixel) {
 
     featureName = feature.get('name');
     // console.log(featureName);
+    
+    // 自己寫的 X2
     clickCity(featureName);
     loadVill(1, 1);
 
@@ -182,5 +173,5 @@ map.on('singleclick', function(evt) {
   }
   //console.log(evt.originalEvent);
   var pixel = map.getEventPixel(evt.originalEvent);
-  displayFeatureInfo(pixel);
+  displayFeatureInfo(pixel); // openlayers 內建
 });
