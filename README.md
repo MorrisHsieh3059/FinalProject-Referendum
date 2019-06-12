@@ -44,7 +44,8 @@ Final_Project
 
 ## 程式(技術)
  1. html
-    - index.html: 建構網頁呈現的基本架構
+    - index.html: 建構網頁呈現的基本架構、點選標題將連接至簡介
+    - intro.pdf:  期末報告的簡介
  2. css
     - index.css:  美化網頁的排版
  3. js
@@ -117,4 +118,10 @@ Final_Project
                    function
                       ● changeCity
     </pre>
+
+## 特色
+1. 即時互動性資料呈現
+2. 精緻的地圖互動呈現
+3. 簡潔清煉的排版設計
+4. 清晰明瞭的使用方式
 
