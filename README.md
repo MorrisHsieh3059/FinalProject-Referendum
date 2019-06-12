@@ -1,4 +1,3 @@
-<pre>
 # 前端期末報告 ── 2018 公投結果
 
 ## 主題簡介
@@ -18,6 +17,7 @@
 * 4. jQuery:      使用者互動情境的控制
 
 ## 專案架構   
+<pre>
 Final_Project   
       |──── semantic    
       |──── css   
@@ -40,7 +40,4 @@ Final_Project
       |   　 |──── changeCity.js   
       |   
       |──── index.html    
-
-
-
 </pre>
