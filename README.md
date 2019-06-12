@@ -1,7 +1,7 @@
 # 前端期末報告 ── 2018 公投結果
 
 ## 主題簡介
-我的期末報告主題是2018公投結果，由於我國2018的公投結果和2016年美國總統選舉一樣，最終的結果和主流媒體及各大民調社所預測的結果大相逕庭，在經過老師教導介接資料後，我就想以這個主題作為我的前端報告。本次報告主要內容有：介接資料庫(包含行政區域及公投結果)、套用Openlayers的地圖模板、決定地圖視覺化不同比例對應到的色階、針對使用者的查詢互動出正確的資料。
+    我的期末報告主題是2018公投結果，由於我國2018的公投結果和2016年美國總統選舉一樣，最終的結果和主流媒體及各大民調社所預測的結果大相逕庭，在經過老師教導介接資料後，我就想以這個主題作為我的前端報告。本次報告主要內容有：介接資料庫(包含行政區域及公投結果)、套用Openlayers的地圖模板、決定地圖視覺化不同比例對應到的色階、針對使用者的查詢互動出正確的資料。
 
 ## 使用方法
 我的網站主要提供兩種呈現模式：   
@@ -58,7 +58,9 @@ Final_Project
           var:
             ● data
 </pre>
+
     - JS Group 2  ﹝MAP﹞
+
 <pre>
       - index.js: 設定好地圖 (參考Openlayers)
          var:
@@ -75,4 +77,44 @@ Final_Project
             ● drawCheck1、drawCheck2
           function:
             ● callDraw1、callDraw2
+      
+      - paint.js: 畫上去地圖
+          function:
+            ● villVisual
 </pre>  
+
+    - JS Group 3 ﹝TABLE﹞
+    
+<pre>
+      - table.js: 建立互動式的表格
+         function:
+            ● vill_table:     村里選單
+            ● district_table: 鄉鎮市區選單
+            ● city_table:     縣市選單
+            
+      - vill.js: 插入下拉式選單中的行政區劃 
+         function:
+            ● vill 
+
+      - condition.js: 根據所選的公投案，抓出資料 
+         function:
+            ● condition  request.js
+</pre>
+
+    - JS Group 4 ﹝responsive﹞
+    
+<pre>
+      - changeCity.js: 當使用者換行政區劃的時候
+        * Case I: from MAP
+               function
+                  ● doPan
+                  ● doZoom
+                  ● func  不讓使用者邊移邊放大
+                  ● clickCity  戳地圖換縣市
+                  ● Openlayers Offcial Onclick Function 
+                  
+         * Case II: from TABLE
+               function
+                  ● changeCity
+</pre>
+
