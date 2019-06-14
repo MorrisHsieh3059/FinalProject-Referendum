@@ -104,7 +104,7 @@ Final_Project
 
           - condition.js: 根據所選的公投案，抓出資料 
              function:
-                ● condition  request.js
+                ● condition --> request.js
     </pre>
 
     - JS Group 4 ﹝responsive﹞
@@ -115,8 +115,8 @@ Final_Project
                    function
                       ● doPan
                       ● doZoom
-                      ● func  不讓使用者邊移邊放大
-                      ● clickCity  戳地圖換縣市
+                      ● func --> 不讓使用者邊移邊放大
+                      ● clickCity --> 戳地圖換縣市
                       ● Openlayers Offcial Onclick Function 
 
              * Case II: from TABLE
